@@ -1,0 +1,22 @@
+# rtas_errd - Daemon to retrieve platform errors
+
+description "Daemon to retrieve platform errors"
+
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+expect fork
+respawn
+respawn limit 10 5
+
+pre-start script
+	if test ! -d /var/cache/ppc64-diag.registered ; then
+		echo "Registering ppc64-diag with system"
+		rm -f /var/cache/ppc64-diag.registered
+		mkdir -v /var/cache/ppc64-diag.registered
+		/etc/ppc64-diag/ppc64_diag_setup --register
+	fi
+end script
+
+exec /usr/sbin/rtas_errd

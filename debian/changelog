@@ -1,0 +1,43 @@
+ppc64-diag (2.6.7-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release, with little-endian fixes (LP: #1358506)
+  * Add newly-required build-dep on libudev-dev for opal_errd.
+  * Skip installing systemd units for now, since they also seem
+    to depend on installing upstream's version of the init jobs.
+  * Drop libsqlite3-dev build-dep, not required by upstream code.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Fri, 03 Oct 2014 16:56:45 -0600
+
+ppc64-diag (2.6.6-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release.
+  * drop all debian/patches, included upstream.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 06 Jun 2014 14:27:22 -0700
+
+ppc64-diag (2.6.4-0ubuntu4) trusty; urgency=medium
+
+  * Add missing build-dependency on libvpd-dev.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 09 Apr 2014 09:59:38 -0700
+
+ppc64-diag (2.6.4-0ubuntu3) trusty; urgency=medium
+
+  [ Frédéric Bonnard ]
+  * Changing rights message catalog
+  * Fixing lintian error init.d-script-missing-dependency-on-remote_fs
+  * Fixing lintian check : init.d-script-missing-start
+
+  [ Steve Langasek ]
+  * Fix upstart pre-start scripts to actually stop the job when it's meant
+    to not run.
+  * Clean up cat|grep|awk pipeline in init scripts
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 02 Apr 2014 15:09:16 -0700
+
+ppc64-diag (2.6.4-0ubuntu2) trusty; urgency=medium
+
+  * Adding support for opal_errd and a fix for rtas
+  * Initial release.
+
+ -- Frédéric Bonnard <frediz@linux.vnet.ibm.com>  Mon, 24 Mar 2014 09:58:14 +0000

@@ -1,0 +1,23 @@
+# opal_errd - Daemon to retrieve platform errors
+
+description "Daemon to retrieve platform errors"
+
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+expect fork
+respawn
+respawn limit 10 5
+
+pre-start script
+# This daemon runs only on PowerNV platform
+	if [ ! -e "/sys/firmware/opal/elog" ]; then
+		PLATFORM=$(awk '/PLATFORM/ {print $3}' /proc/cpuinfo)
+		echo "opal_errd daemon is not supported on the $PLATFORM platform"
+		stop
+		exit 0
+	fi
+end script
+
+exec /usr/sbin/opal_errd

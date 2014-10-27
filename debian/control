@@ -1,0 +1,21 @@
+Source: ppc64-diag
+Section: misc
+Priority: extra
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Frederic Bonnard <frediz@linux.vnet.ibm.com>
+Build-Depends: debhelper (>= 9.0.0), flex, bison, librtas-dev, librtasevent-dev, libservicelog-dev, libncurses5-dev, libvpd-dev, libudev-dev
+Standards-Version: 3.9.5
+Homepage: http://sourceforge.net/projects/linux-diag/files/ppc64-diag/
+
+Package: ppc64-diag
+Architecture: powerpc ppc64 ppc64el
+Depends: ${shlibs:Depends}, ${misc:Depends}, lsvpd, servicelog, powerpc-ibm-utils (>= 1.2.15), lsb-base
+Description: Platform error log analysis tool and rtas_errd daemon
+ This package contains various diagnostic tools for PowerLinux.
+ These tools captures the diagnostic events from Power Systems
+ platform firmware, SES enclosures and device drivers, and
+ write events to servicelog database. It also provides automated
+ responses to urgent events such as environmental conditions and
+ predictive failures, if appropriate modifies the FRUs fault
+ indicator(s) and provides event notification to system
+ administrators or connected service frameworks.

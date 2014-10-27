@@ -1,0 +1,16 @@
+#!/bin/sh
+# postinst script for ppc64-diag
+#
+# see: dh_installdeb(1)
+
+set -e
+
+case "$1" in
+    configure)
+	/etc/ppc64-diag/ppc64_diag_setup --register >/dev/null
+	/etc/ppc64-diag/lp_diag_setup --register >/dev/null
+	#/etc/init.d/rtas_errd start
+    ;;
+esac
+
+#DEBHELPER#
