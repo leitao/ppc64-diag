@@ -1,0 +1,10 @@
+#! /bin/sh
+
+set -e
+
+if [ "$1" = "purge" ]; then
+	if [ -d /var/log/dump ]; then
+		echo "Removing the /var/log/dump"
+		rm -rf /var/log/dump
+	fi
+fi

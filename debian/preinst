@@ -1,0 +1,12 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+	install)
+		# creating directory /var/log/dump if it doesn't exist
+		if [ ! -d /var/log/dump ]; then
+			mkdir -p /var/log/dump
+		fi
+	;;
+esac
